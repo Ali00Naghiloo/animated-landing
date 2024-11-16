@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "font";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../project-assets/fonts/NBInternational-Light.otf")
+      format("woff2");
+  }
+
+  @font-face {
+    font-family: "font-light";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../project-assets/fonts/NBInternational-Light.otf")
+      format("woff2");
+  }
+
+  @font-face {
+    font-family: "font-bold";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("./assets/fonts/NBInternational-Bold.otf") format("woff2");
+  }
+
+  .radial-text {
+    background: var(
+      --Radial,
+      radial-gradient(29.68% 46.42% at 39.06% 38.97%, #2a5fdd 0%, #77a9e8 100%)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .buttons {
+    border-radius: 16px;
+    background: rgba(119, 169, 232, 0.04);
+    box-shadow: 6px 80px 80px 0px rgba(148, 168, 237, 0.02) inset,
+      0px -1px 1px 0px rgba(148, 168, 237, 0.2) inset,
+      0px 1px 1px 0px rgba(148, 168, 237, 0.2) inset;
+    backdrop-filter: blur(10px);
+  }
+
+  .hide-scroll::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+body {
+  cursor: url("./assets/cursor.svg"), auto;
+  font-family: font-light;
+  font-size: 16px;
+  color: #ffffff;
+  background: #000;
+}
+
+button {
+  cursor: url("./assets/cursor.svg"), auto !important;
+}
