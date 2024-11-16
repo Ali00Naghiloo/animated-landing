@@ -3,6 +3,8 @@ import { Route, Routes } from "react-router-dom";
 import PreLoaderPage from "./pages/pre-loading/PreLoaderPage";
 import LandingPage from "./pages/landing/LandingPage";
 import { useSelector } from "react-redux";
+import HomePage from "./pages/home/HomePage";
+import TechPage from "./pages/tech-page/TechPage";
 
 export default function AllRoutes() {
   const showLoader = useSelector((state) => state.preLoader.show);
@@ -11,8 +13,9 @@ export default function AllRoutes() {
     return (
       <>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/landing" element={<LandingPage />} />
+          <Route path="/tech-page" element={<TechPage />} />
         </Routes>
 
         <PreLoaderPage />
