@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import loader from "../../../project-assets/loading/preloader.gif";
-import loaderBack from "../../../project-assets/loading/black-back.gif";
+import loaderBack from "../../../project-assets/black-back.gif";
 import { motion } from "framer-motion";
 import { setShowPreLoader } from "../../store/reducers/preLoaderSlice";
 

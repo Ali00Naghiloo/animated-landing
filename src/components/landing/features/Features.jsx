@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import userIcon from "../../../../project-assets/landing/features/user-icon.png";
 import cpuIcon from "../../../../project-assets/landing/features/cpu-icon.png";
 import blockchainIcon from "../../../../project-assets/landing/features/blockchain-icon.png";
-import background from "../../../../project-assets/landing/full-back.gif";
+import background from "../../../../project-assets/black-back.gif";
 
 export default function Features() {
   const featureTitles = [

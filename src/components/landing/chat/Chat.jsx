@@ -1,6 +1,6 @@
 import Header from "./Header";
 import Body from "./Body";
-import background from "../../../../project-assets/landing/full-back.gif";
+import background from "../../../../project-assets/black-back.gif";
 
 export default function ChatSection() {
   return (
