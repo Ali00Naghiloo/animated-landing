@@ -193,14 +193,13 @@ export default function Body() {
   };
 
   const handleAiGif = () => {
-    let props = [];
-
     if (details.aiMode == "waiting") {
       return (
         <motion.video
           autoPlay
           muted
           loop
+          controls={false}
           className="w-[500px] h-[580px] object-cover z-0"
         >
           <source src={aiWaitingGif} />

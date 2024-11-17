@@ -4,7 +4,7 @@
 
 @layer base {
   @font-face {
-    font-family: "font";
+    font-family: font;
     font-style: normal;
     font-weight: 400;
     font-display: swap;
@@ -13,7 +13,7 @@
   }
 
   @font-face {
-    font-family: "font-light";
+    font-family: font-light;
     font-style: normal;
     font-weight: 400;
     font-display: swap;
@@ -22,7 +22,7 @@
   }
 
   @font-face {
-    font-family: "font-bold";
+    font-family: font-bold;
     font-style: normal;
     font-weight: 400;
     font-display: swap;
@@ -48,6 +48,15 @@
     backdrop-filter: blur(10px);
   }
 
+  .buttons2 {
+    border-radius: 16px;
+    background: rgba(119, 169, 232, 0.16);
+    box-shadow: 6px 80px 80px 0px rgba(148, 168, 237, 0.02) inset,
+      0px -1px 1px 0px rgba(148, 168, 237, 0.2) inset,
+      0px 1px 1px 0px rgba(148, 168, 237, 0.2) inset;
+    backdrop-filter: blur(10px);
+  }
+
   .hide-scroll::-webkit-scrollbar {
     display: none;
   }
@@ -55,10 +64,11 @@
 
 body {
   cursor: url("./assets/cursor.svg"), auto;
-  font-family: font-light;
+  font-family: font;
   font-size: 16px;
   color: #ffffff;
   background: #000;
+  object-fit: cover;
 }
 
 button {

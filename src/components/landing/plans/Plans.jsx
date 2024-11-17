@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Tick from "../../../../project-assets/icons/Tick";
+import Cross from "../../../../project-assets/icons/Cross";
 
 export default function Plans() {
+  const [selectedPLan, setSelectedPlan] = useState(0);
+
   const plans = [
     {
       name: "Personal",
@@ -53,19 +57,67 @@ export default function Plans() {
 
   return (
     <AnimatePresence>
-      <motion.div className="w-full h-screen min-h-[800px] flex flex-col gap-[50px] p-[5%]">
+      <motion.div className="w-full h-screen min-h-[800px] flex flex-col justify-center gap-[50px] p-[5%]">
         {/* page title */}
         <motion.div className="w-full text-center flex flex-col text-6xl">
-          <span>Tailored Plans for Your </span>
-          <span className="radial-text">Life CoPilot</span>
+          <span>Tailored Plans for You</span>
         </motion.div>
 
         {/* plan list */}
-        <motion.div className="w-full flex flex-col">
+        <motion.div className="w-full flex flex-col justify-between gap-[20px]">
           {/* toggle plans */}
-          <motion.div className="flex justify-center w-fit buttons mx-auto">
-            <span className="w-[90px] text-center flex-1 p-3">Personal</span>
-            <span className="w-[90px] text-center flex-1 p-3">Pro</span>
+          <motion.div className="flex justify-center relative w-fit buttons mx-auto">
+            <motion.div
+              className={`buttons p-3 absolute ${
+                selectedPLan ? "right-0" : "left-0"
+              } top-0 h-full w-[50%]`}
+            ></motion.div>
+            <span
+              onClick={() => setSelectedPlan(0)}
+              className="w-[90px] text-center flex-1 p-3 cursor-pointer"
+            >
+              Personal
+            </span>
+            <span
+              onClick={() => setSelectedPlan(1)}
+              className="w-[90px] text-center flex-1 p-3 cursor-pointer"
+            >
+              Pro
+            </span>
+          </motion.div>
+
+          {/* plan details */}
+          <motion.div className="flex flex-col items-center gap-3">
+            {/* title */}
+            <motion.span className="font-bold text-4xl">
+              {plans[selectedPLan].name}
+            </motion.span>
+            <motion.div className="flex gap-2 items-end">
+              <span className="text-3xl">{plans[selectedPLan].price}</span>
+              <span className="text-[#9DA2B3] text-sm">per month</span>
+            </motion.div>
+
+            {/* details */}
+            <div className="flex justify-evenly gap-10 my-10">
+              <div className="lg:h-[190px] flex flex-col flex-wrap gap-5">
+                {plans[selectedPLan].features.map((f, index) => (
+                  <div
+                    key={f}
+                    className={`flex gap-2 h-[24px] ${
+                      !f.active && "opacity-50"
+                    }`}
+                  >
+                    <div className="w-fit">
+                      {f.active ? <Tick /> : <Cross />}
+                    </div>
+                    <span>{f.title}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* submit */}
+            <div className="buttons2 px-7 py-4">Try Now</div>
           </motion.div>
         </motion.div>
       </motion.div>
