@@ -39,7 +39,7 @@ export default function Footer({ mode, setMode }) {
         />
       </motion.div>
 
-      <div className="max-w-[75px]">
+      <div className="max-w-[45px] lg:max-w-[75px]">
         <img src={logo} className="w-full object-cover" alt="" />
       </div>
     </div>

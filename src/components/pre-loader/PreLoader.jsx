@@ -21,14 +21,14 @@ export default function PreLoader() {
   useEffect(() => {
     setTimeout(() => {
       dispatch(setShowPreLoader(0));
-    }, 3000);
+    }, 5000);
   }, []);
 
   // set percetage
   useEffect(() => {
     const intervalId = setInterval(() => {
       setPercentage((prevCount) => prevCount + 1);
-    }, 30);
+    }, 50);
 
     if (percentage === 100) {
       clearInterval(intervalId);
@@ -55,11 +55,11 @@ export default function PreLoader() {
             <img
               src={loader}
               alt=""
-              className="object-cover w-[800px] h-[800px]"
+              className="object-cover w-[800px] h-[500px] lg:h-[800px]"
             />
           </div>
           {/* radial colored text */}
-          <div className="w-full text-center bg-clip-text text-[1.5em]">
+          <div className="w-full text-center bg-clip-text text-[16px] lg:text-[1.5em]">
             <span className="text-white text-transparent radial-text">
               Loading Intelligence...
             </span>
@@ -67,7 +67,7 @@ export default function PreLoader() {
         </div>
 
         {/* footer */}
-        <div className="w-full fixed left-0 bottom-0 flex justify-between text-[#94A8ED] text-[2em] p-[80px] z-10">
+        <div className="w-full fixed left-0 bottom-0 flex justify-between text-[#94A8ED] text-[16px] lg:text-[2em] p-[15px] lg:p-[80px] z-10">
           <div className="flex">
             AI Loading <span className="animate-pulse">..</span>
           </div>

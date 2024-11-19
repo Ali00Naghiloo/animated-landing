@@ -9,8 +9,8 @@ export default function Last() {
       </div>
 
       {/* title */}
-      <div className="text-6xl text-white">
-        Meet Your <span>Life CoPilot</span> Today
+      <div className="text-2xl lg:text-6xl text-white px-10 text-center">
+        Meet Your <span className="radial-text">Life CoPilot</span> Today
       </div>
       <span className="max-w-[250px] text-center opacity-60">
         Manage your life, work, and health effortlessly with VAI OS.

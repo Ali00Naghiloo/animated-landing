@@ -25,20 +25,24 @@ export default function Footer() {
   return (
     <>
       <div className="w-full flex flex-col justify-between p-5 lg:p-[80px]">
-        <div className="w-full flex justify-between gap-5 flex-wrap">
+        <div className="w-full flex flex-col lg:flex-row justify-between gap-5 flex-wrap">
           {/* logo */}
-          <div className="h-[28px] flex flex-[0.3]">
+          <div className="w-[70px] h-[28px] flex flex-[0.3]">
             <img src={logo1} className="h-full" alt="logo" />
             <img src={logo2} className="h-[50%]" alt="life-copilot-logo" />
           </div>
 
           {/* links */}
-          <div className="h-[530px] pb-[230px] flex flex-[0.7] flex-col flex-wrap gap-4 text-2xl">
+          <div className="lg:h-[530px] lg:pb-[230px] flex flex-[0.7] flex-row lg:flex-col flex-wrap gap-6 text-2xl">
             {links.map((link, index) => (
-              <div key={index}>{link.name}</div>
+              <div key={index} className="w-[30%] min-w-fit text-lg">
+                {link.name}
+              </div>
             ))}
           </div>
         </div>
+
+        <div className="my-5 font-bold text-xl">Your Life CoPilot</div>
 
         <div className="w-full flex justify-between text-white/60">
           <div className="w-fit rounded-full rotate-180 p-2 py-3">
@@ -47,7 +51,7 @@ export default function Footer() {
 
           <div>© 2024 Vyvo</div>
 
-          <div className="flex gap-[55px]">
+          <div className="lg:flex gap-[55px] hidden">
             <span>Privacy Policy</span>
             <span>Cookie Policy</span>
             <span>Terms of Use</span>
