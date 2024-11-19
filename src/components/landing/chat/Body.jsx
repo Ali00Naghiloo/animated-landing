@@ -262,7 +262,7 @@ export default function Body() {
           </motion.div>
         )}
         {details.aiMode == "speaking" && (
-          <motion.div className="flex flex-col gap-10">
+          <motion.div className="flex flex-col items-center gap-10">
             <motion.div className="flex gap-2">
               {data.title.split(" ").map((t, index) => (
                 <motion.span
