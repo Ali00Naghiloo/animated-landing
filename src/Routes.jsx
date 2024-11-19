@@ -13,8 +13,8 @@ export default function AllRoutes() {
     return (
       <>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/landing" element={<LandingPage />} />
+          <Route path="/landing" element={<HomePage />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/tech-page" element={<TechPage />} />
         </Routes>
 
