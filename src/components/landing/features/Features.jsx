@@ -63,7 +63,7 @@ export default function Features() {
 
   return (
     <>
-      <div className="w-full h-screen min-h-[900px] flex flex-col gap-[100px] relative py-[5%] px-[5%]">
+      <div className="w-full max-w-[1440px] mx-auto h-screen min-h-[900px] flex flex-col gap-[100px] relative py-[5%] px-[5%]">
         {/* title */}
         <motion.div className="w-full flex flex-col text-6xl text-center">
           <motion.div className="radial-text">A Companion That</motion.div>
@@ -101,8 +101,8 @@ export default function Features() {
           </motion.div>
         </motion.div>
 
-        <div className="w-full h-full absolute left-0 top-0 z-[-1]">
-          <img src={background} alt="" className="w-full h-full z-0" />
+        <div className="w-screen h-full absolute left-[50%] top-0 z-[-1] translate-x-[-50%]">
+          <img src={background} alt="" className="w-full" />
         </div>
       </div>
     </>
