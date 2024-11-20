@@ -66,7 +66,7 @@ export default function Plans() {
 
   return (
     <AnimatePresence>
-      {inView && (
+      {
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -151,7 +151,7 @@ export default function Plans() {
                 ))}
           </motion.div>
         </motion.div>
-      )}
+      }
     </AnimatePresence>
   );
 }

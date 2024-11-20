@@ -76,7 +76,7 @@ export default function Header() {
                               key={index}
                               initial={{ opacity: 0, y: 5 }}
                               animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: 0.03 * index }}
+                              transition={{ delay: 0.09 * index }}
                             >
                               {v}
                             </motion.div>
