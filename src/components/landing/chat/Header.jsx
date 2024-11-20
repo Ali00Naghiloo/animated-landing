@@ -54,9 +54,37 @@ export default function Header() {
                   key={i.title}
                   onMouseOver={() => setHoveredMenu(i.title)}
                   onMouseLeave={() => setHoveredMenu(null)}
-                  className="hover:radial-text hover:shadow shado-[0,0,50px,#77A9E8]"
+                  className="hover:shadow shadow-[0,0,10px,#77A9E8] relative"
                 >
-                  {i.title}
+                  <span className="w-full h-full hover:radial-text">
+                    {i.title}
+                  </span>
+
+                  {hoveredMenu == i.title && i.children && (
+                    <motion.div
+                      className="flex flex-col items-center justify-center gap-3 bg-[#00000080] border border-[#262626] absolute left-0 translate-x-[-50%] translate-y-[-100%] rounded-[20px] p-[16px]"
+                      initial={{ y: 30, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                    >
+                      {i.children.map((child, index) => (
+                        <motion.div
+                          key={index}
+                          className="text-white flex gap-1 min-w-[170px]"
+                        >
+                          {child.split(" ").map((v, index) => (
+                            <motion.div
+                              key={index}
+                              initial={{ opacity: 0, y: 5 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.03 * index }}
+                            >
+                              {v}
+                            </motion.div>
+                          ))}
+                        </motion.div>
+                      ))}
+                    </motion.div>
+                  )}
                 </div>
               ))}
             </div>
