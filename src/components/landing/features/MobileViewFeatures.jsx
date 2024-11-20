@@ -38,16 +38,30 @@ export default function MobileViewFeatures({ featureTitles, descriptions }) {
                         ? setOpenFeatures(title.key)
                         : setOpenFeatures(null)
                     }
-                    className="w-full flex justify-between items-center gap-3 radial-text border-y border-y-[rgba(38,38,38)] py-5"
+                    className="w-full flex justify-between items-center gap-3 border-y border-y-[rgba(38,38,38)] py-5"
                   >
-                    <div className="w-[48px] h-[48px] bg-white rounded-full p-3 flex justify-center items-center">
-                      <img src={title.icon} className="w-full h-fllu" alt="" />
+                    <div
+                      className={`w-[48px] h-[48px] rounded-full p-3 flex justify-center items-center ${
+                        openFeatures == title.key ? "radial-text" : "bg-white"
+                      }`}
+                    >
+                      <img src={title.icon} className="w-full h-full" alt="" />
                     </div>
 
-                    <span className="mx-auto lg:m-0">{title.title}</span>
+                    <span
+                      className={`mx-auto lg:m-0 ${
+                        openFeatures == title.key ? "radial-text" : ""
+                      }`}
+                    >
+                      {title.title}
+                    </span>
 
-                    {openFeatures && (
+                    {openFeatures == title.key ? (
                       <motion.div animate={{ rotate: 180 }}>
+                        <DownLined />
+                      </motion.div>
+                    ) : (
+                      <motion.div>
                         <DownLined />
                       </motion.div>
                     )}

@@ -98,8 +98,12 @@ export default function Features() {
                   key={d.name}
                 >
                   <motion.div className="text-2xl">{d.name}</motion.div>
-                  <motion.div className="w-[420px] text-[#9DA2B3]">
-                    {d.description}
+                  <motion.div className="w-[420px] text-[#9DA2B3] flex flex-wrap gap-1">
+                    {d.description.split(".").map((des) => (
+                      <motion.span key={des} className="hover:radial-text">
+                        {des}
+                      </motion.span>
+                    ))}
                   </motion.div>
                 </motion.div>
               ))}

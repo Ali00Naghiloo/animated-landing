@@ -9,7 +9,7 @@ export default function ChatSection() {
         <img src={background} alt="" className="w-full h-full" />
       </div>
 
-      <div className="w-full max-w-[1440px] mx-auto h-screen bg-black flex flex-col p-[20px] md:p-[40px] xl:p-[80px]">
+      <div className="w-full max-w-[1440px] mx-auto h-screen bg-black flex flex-col p-[20px] md:p-[40px] lg:p-[80px] lg:pt-[30px]">
         <Header />
 
         <Body />

@@ -59,11 +59,13 @@
 
   .hide-scroll::-webkit-scrollbar {
     display: none;
+    scrollbar-width: none;
+    -moz-scrollbar-width: none;
   }
 }
 
 body {
-  cursor: url("./assets/cursor.svg"), auto;
+  cursor: url("../project-assets/cursor.svg"), auto;
   font-family: font;
   font-size: 16px;
   color: #ffffff;
@@ -71,6 +73,16 @@ body {
   object-fit: cover;
 }
 
+/* General CSS */
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+/* For iOS devices */
+video::-webkit-media-controls-panel {
+  display: none !important;
+}
+
 button {
-  cursor: url("./assets/cursor.svg"), auto !important;
+  cursor: url("../project-assets/cursor.svg"), pointer !important;
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logoOne from "../../../../project-assets/logo.png";
 import logoTow from "../../../../project-assets/life-copilot-logo.png";
 import MyButton from "../../reusables/MyButton";
@@ -7,13 +7,25 @@ import MenuIcon from "../../../../project-assets/icons/Menu.jsx";
 import { useWindowSize } from "@uidotdev/usehooks";
 
 export default function Header() {
+  const [hoveredMenu, setHoveredMenu] = useState(null);
   const { width } = useWindowSize();
 
   const links = [
-    { title: "About", path: "/" },
-    { title: "Features", path: "/" },
-    { title: "Pricing", path: "/" },
-    { title: "How it works", path: "/" },
+    { title: "Home", path: "/", children: null },
+    {
+      title: "VAI OS",
+      path: "/",
+      children: ["Tokenomics Roadmap", "Tokenomics Roadmap", "Using Agents"],
+    },
+    {
+      title: "Vyvo Tech",
+      path: "/",
+      children: ["BioSense Ring", "BioSense Band", "BioSense Watch"],
+    },
+    { title: "Vyvo Smart Chain", path: "/" },
+    { title: "SocialFi", path: "/" },
+    { title: "About us", path: "/", children: ["News", "Support"] },
+    { title: "Store", path: "/" },
   ];
 
   if (width > 990) {
@@ -36,9 +48,14 @@ export default function Header() {
 
           {/* links */}
           <div className="flex gap-4 mx-auto translate-x-[-30px]">
-            <div className="flex gap-[30px] rounded-xl px-[30px] py-[12px] buttons">
+            <div className="flex gap-[30px] rounded-xl px-[30px] py-[16px] buttons">
               {links.map((i) => (
-                <div key={i} className="">
+                <div
+                  key={i.title}
+                  onMouseOver={() => setHoveredMenu(i.title)}
+                  onMouseLeave={() => setHoveredMenu(null)}
+                  className="hover:radial-text hover:shadow shado-[0,0,50px,#77A9E8]"
+                >
                   {i.title}
                 </div>
               ))}
@@ -50,7 +67,7 @@ export default function Header() {
             <MyButton
               children={
                 <div className="w-full min-w-fit text-white flex items-center gap-2">
-                  Menu <MenuIcon />
+                  Try Now
                 </div>
               }
               onClick={() => {

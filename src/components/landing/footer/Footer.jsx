@@ -35,14 +35,19 @@ export default function Footer() {
           {/* links */}
           <div className="lg:h-[530px] lg:pb-[230px] flex flex-[0.7] flex-row lg:flex-col flex-wrap gap-6 text-2xl">
             {links.map((link, index) => (
-              <div key={index} className="w-[30%] min-w-fit text-lg">
+              <div
+                key={index}
+                className="w-[30%] min-w-fit text-lg hover:radial-text"
+              >
                 {link.name}
               </div>
             ))}
           </div>
         </div>
 
-        <div className="my-5 font-bold text-xl">Your Life CoPilot</div>
+        <div className="my-[30px] font-bold text-xl block lg:hidden">
+          Your Life CoPilot
+        </div>
 
         <div className="w-full flex justify-between text-white/60">
           <div className="w-fit rounded-full rotate-180 p-2 py-3">
