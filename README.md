@@ -82,7 +82,7 @@ const handleSendQuestion = async () => {
 
 ---
 
-## State Diagram (Mermaid)
+## State Diagram
 
 ```mermaid
 stateDiagram-v2
@@ -91,6 +91,16 @@ stateDiagram-v2
     Waiting --> Thinking: API Request to Backend
     Thinking --> Speaking: API Response Received
     Speaking --> [*]
+```
+
+## State Diagram (User & AI)
+
+```mermaid
+sequenceDiagram
+User->>Frontend: Enters Question
+Frontend->>Backend: Sends Text/Voice Data
+Backend->>Frontend: Returns AI Response
+Frontend->>User: Displays AI's Response
 ```
 
 ---
