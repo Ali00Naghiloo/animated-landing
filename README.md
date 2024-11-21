@@ -1,3 +1,7 @@
+Here’s the updated README with a **Mermaid** diagram for better visualization.
+
+---
+
 # README: Backend Integration for `AiMode.jsx`
 
 ## Project: **Vyvo**
@@ -12,31 +16,31 @@ src/components/landing/chat/mods/AiMode.jsx
 
 ## Overview
 
-`AiMode.jsx` is the main file that handles the interaction flow between the user and the AI within the **Vyvo** project. It uses React components and state management to move through different interaction phases (listening, waiting, thinking, and speaking).
+`AiMode.jsx` handles the interaction flow between the user and the AI in **Vyvo**. It transitions through various states (listening, waiting, thinking, and speaking), sending the user query to the backend and displaying the AI's response.
 
-This document explains how the backend developer can integrate their API to process user queries and provide AI responses.
+This document provides instructions for integrating the backend API with this file.
 
 ---
 
 ## Key Concepts
 
 1. **AI Modes:**
-   - `listening`: The user inputs a query (text or voice).
-   - `waiting`: Prepares the query data and sends it to the backend.
-   - `thinking`: Displays a "thinking" animation while waiting for the backend response.
-   - `speaking`: Displays the AI's response.
+   - **`listening`**: Captures the user’s query (text or voice).
+   - **`waiting`**: Prepares the data and sends it to the backend.
+   - **`thinking`**: Shows an animation while waiting for the backend's response.
+   - **`speaking`**: Displays the AI’s response (text or voice).
 
 2. **Data Flow:**
-   - User's query (`questionData`) is sent to the backend.
+   - User’s query (`questionData`) is sent to the backend.
    - Backend processes the query and returns the AI's response (`aiResponse`).
-   - Frontend handles animations and transitions between modes.
+   - Frontend transitions between modes based on the response.
 
 3. **Integration Point:**
-   Backend integration is required in the `handleSendQuestion` function to handle API requests and responses.
+   Backend integration is required in the `handleSendQuestion` function.
 
 ---
 
-## Code Snippet for API Integration
+## Backend Integration Code
 
 ```javascript
 const handleSendQuestion = async () => {
@@ -78,30 +82,15 @@ const handleSendQuestion = async () => {
 
 ---
 
-## State Diagram
+## State Diagram (Mermaid)
 
-Below is a visual representation of how the states (`aiMode`) transition and where the backend API integration fits.
-
-```plaintext
-+-------------+        User Input        +-------------+
-|             |  +-------------------->  |             |
-| Listening   |                          |   Waiting    |
-|             |  <--------------------+  |             |
-+-------------+                          +-------------+
-       |                                        |
-       |                                        v
-       |                                  +-------------+
-       |                                  |             |
-       |     API Request to Backend       |   Thinking  |
-       +--------------------------------> |             |
-                                          +-------------+
-                                                 |
-                                                 v
-                                          +-------------+
-                                          |             |
-                                          |   Speaking  |
-                                          |             |
-                                          +-------------+
+```mermaid
+stateDiagram-v2
+    [*] --> Listening
+    Listening --> Waiting: User Input
+    Waiting --> Thinking: API Request to Backend
+    Thinking --> Speaking: API Response Received
+    Speaking --> [*]
 ```
 
 ---
@@ -109,10 +98,10 @@ Below is a visual representation of how the states (`aiMode`) transition and whe
 ## Backend Developer Instructions
 
 ### 1. API Endpoint
-Replace `<BACKEND_API_ENDPOINT>` in the `handleSendQuestion` function with the actual backend endpoint that processes user queries.
+Replace `<BACKEND_API_ENDPOINT>` in the `handleSendQuestion` function with the actual backend endpoint to process user queries.
 
 ### 2. Request Payload
-The payload sent to the backend contains the following structure:
+The frontend sends the following JSON structure to the backend:
 ```json
 {
   "text": "User's question text",
@@ -130,12 +119,12 @@ The backend should return the following JSON structure:
 ```
 
 ### 4. Error Handling
-Ensure the backend API gracefully handles errors and returns appropriate HTTP status codes with error messages.
+Ensure the backend API handles errors gracefully and provides meaningful error messages with appropriate HTTP status codes.
 
 ---
 
 ## Conclusion
 
-The `AiMode.jsx` file is the core component of the AI interaction workflow in Vyvo. Backend developers are responsible for integrating the API within the `handleSendQuestion` function to process user queries and deliver AI responses. Follow the state diagram and provided code snippet for seamless integration.
+The `AiMode.jsx` file orchestrates the frontend AI interaction flow in Vyvo. Backend developers must integrate their API into the `handleSendQuestion` function to handle user queries and provide responses. Use the state diagram as a reference for understanding the workflow.
 
-For any questions, please reach out to the frontend team.
+For assistance, contact the frontend team.
