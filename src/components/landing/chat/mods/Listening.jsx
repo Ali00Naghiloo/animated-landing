@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import aiWaitingGif from "../../../../../project-assets/landing/waiting.webm";
+import aiListeningGif from "../../../../../project-assets/landing/listening.webm";
 import MyButton from "../../../reusables/MyButton";
 
 export default function Listening({ setMode }) {
@@ -21,7 +21,7 @@ export default function Listening({ setMode }) {
             controls={false}
             className="w-[500px] h-[450px] lg:h-[580px] object-cover z-0"
           >
-            <source src={aiWaitingGif} />
+            <source src={aiListeningGif} />
           </motion.video>
         </motion.div>
 

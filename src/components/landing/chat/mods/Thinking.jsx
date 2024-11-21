@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import aiWaitingGif from "../../../../../project-assets/landing/waiting.webm";
+import aiThinkingGif from "../../../../../project-assets/landing/thinking.webm";
 import MyButton from "../../../reusables/MyButton";
 import MyInput from "../../../reusables/MyInput";
 import ThinkingLoadingSvg from "../../../../../project-assets/icons/ThinkingLoadingSvg";
@@ -23,7 +23,7 @@ export default function Thinking({ setMode, questionData }) {
             controls={false}
             className="w-[500px] h-[450px] lg:h-[580px] object-cover z-0"
           >
-            <source src={aiWaitingGif} />
+            <source src={aiThinkingGif} />
           </motion.video>
         </motion.div>
 

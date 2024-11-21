@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import aiWaitingGif from "../../../../../project-assets/landing/waiting.webm";
+import aiSpeakingGif from "../../../../../project-assets/landing/speaking.webm";
 import MyButton from "../../../reusables/MyButton";
 import MyInput from "../../../reusables/MyInput";
 import { useState } from "react";
@@ -31,7 +31,7 @@ export default function Waiting({ setMode, aiResponse }) {
             controls={false}
             className="w-[500px] h-[450px] lg:h-[580px] object-cover z-0"
           >
-            <source src={aiWaitingGif} />
+            <source src={aiSpeakingGif} />
           </motion.video>
         </motion.div>
 
