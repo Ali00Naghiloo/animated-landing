@@ -1,6 +1,6 @@
 import Header from "./Header";
-import Body from "./Body";
 import background from "../../../../project-assets/black-back.gif";
+import AiMode from "./mods/AiMode";
 
 export default function ChatSection() {
   return (
@@ -12,7 +12,7 @@ export default function ChatSection() {
       <div className="w-full max-w-[1440px] mx-auto h-screen bg-black flex flex-col p-[20px] md:p-[40px] lg:p-[80px] lg:pt-[30px]">
         <Header />
 
-        <Body />
+        <AiMode />
       </div>
     </>
   );

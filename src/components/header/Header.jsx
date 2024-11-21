@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import logoOne from "../../../../project-assets/logo.png";
-import logoTow from "../../../../project-assets/life-copilot-logo.png";
-import MyButton from "../../reusables/MyButton";
+import logoOne from "../../../project-assets/logo.png";
+import logoTow from "../../../project-assets/life-copilot-logo.png";
+import MyButton from "../reusables/MyButton";
 import { motion } from "framer-motion";
-import MenuIcon from "../../../../project-assets/icons/Menu.jsx";
+import MenuIcon from "../../../project-assets/icons/Menu.jsx";
 import { useWindowSize } from "@uidotdev/usehooks";
 
 export default function Header() {

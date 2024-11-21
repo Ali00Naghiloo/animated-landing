@@ -47,7 +47,7 @@ export default function FAQ() {
             <motion.div
               onClick={() => handleSetOpenedFaq(faq.title)}
               key={index}
-              className="w-full px-7 py-3 lg:w-[70%] border-l border-l-[#262626] hover:border-[#77A9E8]"
+              className="w-full px-7 py-3 lg:w-[60%] border-l transition-all border-l-[#262626] hover:border-[#77A9E8]"
             >
               <span className="text-3xl">{faq.title}</span>
               {openedFaq.includes(faq.title) && (
@@ -55,7 +55,8 @@ export default function FAQ() {
                   initial={{ y: 30, opacity: 0.1 }}
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -30, opacity: 0 }}
-                  className="pt-[25px] !opacity-60"
+                  transition={{ ease: "easeInOut", duration: 0.4 }}
+                  className="w-full pt-[25px] !opacity-60"
                 >
                   {faq.description}
                 </motion.p>

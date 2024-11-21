@@ -79,7 +79,7 @@ export default function Plans() {
           </motion.div>
 
           {/* plan list */}
-          <motion.div className="w-full flex flex-col justify-between gap-[20px]">
+          <motion.div className="w-full flex flex-col justify-between gap-[32px]">
             {/* toggle plans */}
             <motion.div className="flex justify-center relative w-fit buttons mx-auto">
               <motion.div
@@ -115,9 +115,19 @@ export default function Plans() {
                     className="flex flex-col items-center gap-3"
                   >
                     {/* title */}
-                    <motion.span className="font-bold text-4xl">
-                      {plan.name}
-                    </motion.span>
+                    <motion.div className="font-bold text-4xl relative">
+                      <p>{plan.name}</p>
+                      {plan.name == "Proffesional" && (
+                        <motion.span
+                          className="h-[32px] flex justify-center items-center absolute right-0 top-0 translate-x-[50%] translate-y-[-50%] buttons p-1 shadow shadow-[#fff]"
+                          initial={{}}
+                        >
+                          <div className="radial-text text-[12px]">
+                            <span>Most Popular</span>
+                          </div>
+                        </motion.span>
+                      )}
+                    </motion.div>
                     <motion.div className="flex gap-2 items-end">
                       <span className="text-3xl">{plan.price}</span>
                       <span className="text-[#9DA2B3] text-sm">per month</span>
