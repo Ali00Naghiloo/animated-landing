@@ -29,8 +29,9 @@ export default function Footer() {
   };
 
   return (
-    <div className="absolute bottom-0 left-0 z-10 w-full h-fit flex justify-between p-[20px] lg:p-[80px]">
+    <div className="absolute bottom-0 left-0 w-full h-fit flex justify-between p-[20px] lg:p-[80px]">
       <motion.div
+        className="z-10"
         onClick={handleScroll}
         variants={downVariants}
         initial={"initial"}
