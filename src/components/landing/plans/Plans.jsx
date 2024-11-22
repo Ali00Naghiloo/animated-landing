@@ -2,9 +2,10 @@ import React, { useRef, useState } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import Tick from "../../../../project-assets/icons/Tick";
 import Cross from "../../../../project-assets/icons/Cross";
+import MyButton from "../../reusables/MyButton";
 
 export default function Plans() {
-  const [selectedPLan, setSelectedPlan] = useState("Personal");
+  const [selectedPlan, setSelectedPlan] = useState("Personal");
   const pageRef = useRef();
   const inView = useInView(pageRef);
 
@@ -82,11 +83,24 @@ export default function Plans() {
           <motion.div className="w-full flex flex-col justify-between gap-[32px]">
             {/* toggle plans */}
             <motion.div className="flex justify-center relative w-fit buttons mx-auto">
-              <motion.div
-                className={`buttons p-3 absolute transition-all ${
-                  selectedPLan == "Personal" ? "left-0" : "right-0"
-                } top-0 h-full w-[50%]`}
-              ></motion.div>
+              {selectedPlan == "Personal" && (
+                <motion.div
+                  initial={{ x: 0 }}
+                  animate={{ x: "-100%" }}
+                  exit={{ x: 0 }}
+                  transition={{ ease: "linear", duration: 0.2 }}
+                  className={`buttons p-3 absolute transition-all right-0 top-0 h-full w-[50%]`}
+                ></motion.div>
+              )}
+              {selectedPlan == "Proffesional" && (
+                <motion.div
+                  initial={{ x: 0 }}
+                  animate={{ x: "100%" }}
+                  exit={{ x: 0 }}
+                  transition={{ ease: "linear", duration: 0.2 }}
+                  className={`buttons p-3 absolute transition-all left-0 top-0 h-full w-[50%]`}
+                ></motion.div>
+              )}
               <span
                 onClick={() => handleChangePlanList("Personal")}
                 className="w-[90px] text-center flex-1 p-3 cursor-pointer"
@@ -102,9 +116,9 @@ export default function Plans() {
             </motion.div>
 
             {/* plan details */}
-            {selectedPLan &&
+            {selectedPlan &&
               plans
-                .filter((plan) => plan.name == selectedPLan)
+                .filter((plan) => plan.name == selectedPlan)
                 .map((plan) => (
                   <motion.div
                     key={plan.name}
@@ -156,7 +170,11 @@ export default function Plans() {
                     </div>
 
                     {/* submit */}
-                    <div className="buttons2 px-7 py-4">Try Now</div>
+                    <MyButton
+                      variant=""
+                      children={<>Try Now</>}
+                      className="buttons2 px-7 py-4"
+                    ></MyButton>
                   </motion.div>
                 ))}
           </motion.div>

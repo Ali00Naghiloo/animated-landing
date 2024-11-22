@@ -54,7 +54,7 @@ export default function Header() {
                   key={i.title}
                   onMouseOver={() => setHoveredMenu(i.title)}
                   onMouseLeave={() => setHoveredMenu(null)}
-                  className="hover:shadow shadow-[0,0,10px,#77A9E8] relative"
+                  className="hover:shadow transition-colors duration-75 shadow-[0,0,10px,#77A9E8] relative"
                 >
                   <span className="w-full h-full hover:radial-text">
                     {i.title}
@@ -76,7 +76,10 @@ export default function Header() {
                               key={index}
                               initial={{ opacity: 0, y: 5 }}
                               animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: 0.09 * index }}
+                              transition={{
+                                delay: 0.09 * index,
+                                ease: "easeInOut",
+                              }}
                             >
                               {v}
                             </motion.div>

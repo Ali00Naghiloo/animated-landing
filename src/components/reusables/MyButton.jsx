@@ -27,7 +27,7 @@ export default function MyButton({
 
   return (
     <button
-      className={`
+      className={`hover:scale-[105%] transition duration-800 ease-in-out transform hover:bg-[#77A9E8] text-[1.3em] hover:shadow-[0_0_50px_#77A9E8]
         ${variants[variant]}
         ${sizes[size]}
         ${className}

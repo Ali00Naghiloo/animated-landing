@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import userIcon from "../../../../project-assets/landing/features/user-icon.png";
 import cpuIcon from "../../../../project-assets/landing/features/cpu-icon.png";
@@ -9,6 +9,7 @@ import MobileViewFeatures from "./MobileViewFeatures";
 
 export default function Features() {
   const { width } = useWindowSize();
+  const targetRef = useRef();
   const [currentSection, setCurrentSection] = useState("cpu");
 
   const featureTitles = [
@@ -70,10 +71,28 @@ export default function Features() {
     }
   };
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        console.log("Element is visible");
+      } else {
+        console.log("Element is not visible");
+        // Scroll to the element if it's not visible
+        targetRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+
+    if (targetRef.current) {
+      observer.observe(targetRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [targetRef]);
+
   if (width > 990) {
     return (
       <>
-        <div className="w-full max-w-[1440px] mx-auto h-screen min-h-[900px] flex flex-col gap-[100px] relative py-[5%] px-[5%]">
+        <div className="w-full max-w-[1440px] mx-auto h-screen min-h-[900px] flex flex-col gap-[100px] relative">
           {/* title */}
           <motion.div className="w-full flex flex-col text-6xl text-center">
             <motion.div className="radial-text">A Companion That</motion.div>
@@ -81,9 +100,9 @@ export default function Features() {
           </motion.div>
 
           {/* scrolling features */}
-          <motion.div className="w-full h-full flex items-start justify-between flex-1">
+          <motion.div className="w-full h-full flex overflow-auto hide-scroll items-start justify-between flex-1 py-[5%] px-[5%]">
             {/* titles */}
-            <motion.div className="flex flex-col justify-center gap-6">
+            <motion.div className="h-full flex flex-col justify-center gap-6 sticky top-0">
               <motion.span className="mb-6">Features of VAI</motion.span>
               {featureTitles.map((title) => (
                 <motion.div key={title.key} className="flex items-center gap-3">
@@ -109,7 +128,7 @@ export default function Features() {
             </motion.div>
 
             {/* descriptions */}
-            <motion.div className="flex-[0.8] h-[400px] overflow-auto hide-scroll flex flex-col gap-[80px]">
+            <motion.div className="flex-[0.8] h-[400px] flex flex-col gap-[80px]">
               {descriptions.map((d) => (
                 <motion.div
                   id={d.key}

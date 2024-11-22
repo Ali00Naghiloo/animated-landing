@@ -12,14 +12,14 @@ export default function Listening({ setMode }) {
           animate={{ scale: 1 }}
           transition={{ duration: 0.4 }}
           exit={{ z: -20, opacity: 0 }}
-          className="w-[380px] h-[20%] lg:h-[300px] flex justify-center items-center pointer-events-none my-auto z-0"
+          className="w-[380px] h-[20%] lg:h-[300px] flex justify-center items-center pointer-events-none my-auto lg:mt-auto z-0"
         >
           <motion.video
             autoPlay
             muted
             loop
             controls={false}
-            className="w-[500px] h-[450px] lg:h-[580px] object-cover z-0"
+            className="w-[500px] h-[450px] lg:h-[650px] object-cover z-0"
           >
             <source src={aiListeningGif} />
           </motion.video>
@@ -59,7 +59,7 @@ export default function Listening({ setMode }) {
             <motion.div className="flex gap-2 lg:my-auto">
               {"Experience the Vyvo AI".split(" ").map((t, index) => (
                 <motion.span
-                  className="text-center radial-text text-2xl lg:text-5xl"
+                  className="text-center radial-text text-2xl lg:text-7xl"
                   key={t}
                   initial={{ z: 40, y: 15, opacity: 0 }}
                   animate={{ z: 0, y: 0, opacity: 1 }}
@@ -73,7 +73,7 @@ export default function Listening({ setMode }) {
 
             {/* descriptions */}
             <motion.div
-              className="font-light text-[0.8em] lg:text-[1em] text-[rgba(255,255,255,0.6)] lg:max-w-[30%] mx-auto lg:mt-auto text-center"
+              className="font-light text-[0.8em] lg:text-[1em] text-[rgba(255,255,255,0.6)] lg:max-w-[50%] mx-auto lg:mt-auto text-center"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}

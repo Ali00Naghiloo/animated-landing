@@ -4,28 +4,40 @@ import { motion } from "framer-motion";
 import Down from "../../../../project-assets/icons/Down";
 
 const downVariants = {
-  animate: { y: 15 },
+  animate: { y: 0 },
   initial: { y: -30 },
   transition: {
     delay: 1,
-    ease: "circIn",
+    ease: "",
     repeat: Infinity,
     duration: 0.5,
     repeatType: "reverse",
-    repeatDelay: 2,
+    repeatDelay: 0.5,
   },
 };
 
-export default function Footer({ mode, setMode }) {
+export default function Footer() {
+  function scrollToPosition(position) {
+    window.scrollTo({
+      top: position,
+      behavior: "smooth",
+    });
+  }
+
+  const handleScroll = () => {
+    scrollToPosition(window.innerHeight);
+  };
+
   return (
-    <div className="absolute bottom-0 left-0 w-full h-fit flex justify-between">
+    <div className="absolute bottom-0 left-0 z-10 w-full h-fit flex justify-between p-[20px] lg:p-[80px]">
       <motion.div
+        onClick={handleScroll}
         variants={downVariants}
         initial={"initial"}
         animate={"animate"}
         transition={{
           delay: 1,
-          ease: "circIn",
+          ease: "easeInOut",
           repeat: Infinity,
           duration: 0.5,
           repeatType: "reverse",
@@ -33,6 +45,7 @@ export default function Footer({ mode, setMode }) {
         }}
       >
         <MyButton
+          onClick={handleScroll}
           variant=""
           className={"buttons px-[11px] py-[16px]"}
           children={<Down />}

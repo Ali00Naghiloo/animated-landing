@@ -1,7 +1,13 @@
 import React from "react";
 import logo1 from "../../../../project-assets/logo.png";
 import logo2 from "../../../../project-assets/life-copilot-logo.png";
-import Down from "../../../../project-assets/icons/Down";
+import Down, { Up } from "../../../../project-assets/icons/Down";
+import { motion } from "framer-motion";
+
+const downVariants = {
+  animate: { y: -30 },
+  initial: { y: 0 },
+};
 
 export default function Footer() {
   const links = [
@@ -33,7 +39,7 @@ export default function Footer() {
           </div>
 
           {/* links */}
-          <div className="lg:h-[530px] lg:pb-[230px] flex flex-[0.7] flex-row lg:flex-col flex-wrap gap-6 text-2xl">
+          <div className="lg:h-[236px] lg:mb-[140px] flex flex-[0.7] flex-row lg:flex-col flex-wrap gap-4 text-2xl">
             {links.map((link, index) => (
               <div
                 key={index}
@@ -50,9 +56,22 @@ export default function Footer() {
         </div>
 
         <div className="w-full flex justify-between text-white/60">
-          <div className="w-fit rounded-full rotate-180 p-2 py-3">
-            <Down />
-          </div>
+          <motion.div
+            variants={downVariants}
+            initial={"initial"}
+            animate={"animate"}
+            transition={{
+              delay: 1,
+              ease: "easeInOut",
+              repeat: Infinity,
+              duration: 0.5,
+              repeatType: "reverse",
+              repeatDelay: 0.8,
+            }}
+            className="w-fit rounded-full p-2 py-3 bg-white"
+          >
+            <Up />
+          </motion.div>
 
           <div>© 2024 Vyvo</div>
 

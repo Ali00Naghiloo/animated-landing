@@ -1,5 +1,6 @@
 import React from "react";
 import background from "../../../../project-assets/black-back.gif";
+import MyButton from "../../reusables/MyButton";
 
 export default function Last() {
   return (
@@ -15,7 +16,11 @@ export default function Last() {
       <span className="max-w-[250px] text-center opacity-60">
         Manage your life, work, and health effortlessly with VAI OS.
       </span>
-      <div className="buttons2 px-7 py-4">Try now</div>
+      <MyButton
+        children={<>Try now</>}
+        variant=""
+        className="buttons2 px-7 py-4"
+      />
     </div>
   );
 }

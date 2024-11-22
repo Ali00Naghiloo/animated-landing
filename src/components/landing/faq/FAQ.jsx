@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import MyButton from "../../reusables/MyButton";
 
 export default function FAQ() {
   const [openedFaq, setOpenedFaq] = useState([]);
@@ -47,7 +48,7 @@ export default function FAQ() {
             <motion.div
               onClick={() => handleSetOpenedFaq(faq.title)}
               key={index}
-              className="w-full px-7 py-3 lg:w-[60%] border-l transition-all border-l-[#262626] hover:border-[#77A9E8]"
+              className="w-full px-7 py-3 lg:w-[60%] transition-colors border-l-4 border-l-[#262626] hover:border-[#77A9E8]"
             >
               <span className="text-3xl">{faq.title}</span>
               {openedFaq.includes(faq.title) && (
@@ -66,7 +67,11 @@ export default function FAQ() {
         </motion.div>
 
         <div className="w-full flex justify-center mt-10">
-          <div className="buttons2 px-7 py-4 rounded-2xl">Vyvo Support</div>
+          <MyButton
+            variant=""
+            children={<>Vyvo Support</>}
+            className="buttons2 px-7 py-4 rounded-2xl"
+          />
         </div>
       </div>
     </AnimatePresence>

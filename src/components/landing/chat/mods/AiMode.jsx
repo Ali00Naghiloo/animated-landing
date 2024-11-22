@@ -1,21 +1,12 @@
 import React, { useRef, useState } from "react";
-import aiListeningGif from "../../../../../project-assets/landing/listening.webm";
-import aiWaitingGif from "../../../../../project-assets/landing/waiting.webm";
-import aiThinkingGif from "../../../../../project-assets/landing/thinking.webm";
-import aiSpeakingGif from "../../../../../project-assets/landing/speaking.webm";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import Footer from "../Footer";
-import MyButton from "../../../reusables/MyButton";
-import MyInput from "../../../reusables/MyInput";
-import playIcon from "../../../../../project-assets/landing/play.png";
-import OpenModal from "../../../../../project-assets/icons/OpenModal";
-import AnswerModal from "../AnswerModal";
 import Listening from "./Listening";
 import Waiting from "./Waiting";
 import Thinking from "./Thinking";
 import Speaking from "./Speaking";
 
-export default function Body() {
+export default function AiMode() {
   const [getAnswerLoading, setGetAnswerLoading] = useState(false); // for handling the time we see thinking part of ai
   const [aiMode, setAiMode] = useState("listening"); // for handling different modes and components
   const [questionData, setQuestionData] = useState({ text: null, voice: null }); // sending data to ai(both voice and text)
@@ -36,7 +27,12 @@ export default function Body() {
       3000 // the time of thinking section
     );
 
-    setAiResponse({ text: "Sleep Well!!!", voice: null });
+    setAiResponse({
+      text: "Sleep Well!!!",
+      description:
+        "asdasdasdasd asdasf asd asd asd asd asd asd asd asd asd asd asdas asdasd asd To improve your sleep, try establishing a consistent bedtime routine by going to bed and waking up at the same time every day, even on weekends. Avoid caffeine or heavy meals close to bedtime, and limit screen time at least an hour before sleep. Incorporating relaxation techniques like deep breathing or light stretching can also help calm your mind and prepare your body for restful sleep.",
+      voice: null,
+    });
   };
 
   return (
@@ -55,8 +51,14 @@ export default function Body() {
         <Thinking setMode={setAiMode} questionData={questionData} />
       )}
       {aiMode == "speaking" && (
-        <Speaking setMode={setAiMode} aiResponse={aiResponse} />
+        <Speaking
+          setMode={setAiMode}
+          setQuestionData={setQuestionData}
+          aiResponse={aiResponse}
+        />
       )}
+
+      <Footer />
     </AnimatePresence>
   );
 }

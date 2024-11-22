@@ -18,7 +18,7 @@ export default function Waiting({
           animate={{ scale: 1 }}
           transition={{ duration: 0.4 }}
           exit={{ z: -20, opacity: 0 }}
-          className="w-[380px] h-[20%] lg:h-[300px] flex justify-center items-center pointer-events-none my-auto z-0"
+          className="w-[380px] h-[20%] lg:h-[300px] flex justify-center items-center pointer-events-none my-auto lg:mt-auto z-0"
         >
           <motion.video
             autoPlay

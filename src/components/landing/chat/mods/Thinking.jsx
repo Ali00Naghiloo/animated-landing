@@ -98,7 +98,7 @@ export default function Thinking({ setMode, questionData }) {
                   </div>
                 }
                 className={
-                  "min-w-[200px] buttons text-[1.3em] px-[43px] py-[19px] mb-auto lg:mb-0 backdrop-blur-[10px]"
+                  "buttons text-[1.3em] px-[30px] py-[19px] mb-auto lg:mb-0 backdrop-blur-[10px]"
                 }
                 variant=""
               />

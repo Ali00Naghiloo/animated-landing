@@ -5,12 +5,14 @@ import MyInput from "../../../reusables/MyInput";
 import { useState } from "react";
 import OpenModal from "../../../../../project-assets/icons/OpenModal";
 import playIcon from "../../../../../project-assets/landing/play.png";
+import PauseIcon from "../../../../../project-assets/icons/Pause";
 import AnswerModal from "../AnswerModal";
 
-export default function Waiting({ setMode, aiResponse }) {
+export default function Waiting({ setMode, setQuestionData, aiResponse }) {
   // ai voice response
-  const { voice } = aiResponse;
+  const { title, description, voice } = aiResponse;
   const [showModal, setShowModal] = useState(false);
+  const [playingVoice, setPlayingVoice] = useState(false);
   const voiceLines = Array.from({ length: 40 });
 
   return (
@@ -37,7 +39,7 @@ export default function Waiting({ setMode, aiResponse }) {
 
         {/* texts */}
         <div className="w-full h-[40%] flex flex-col items-center lg:justify-end gap-8">
-          <motion.div className="flex gap-2 items-center justify-center w-full lg:gap-5">
+          <motion.div className="flex gap-2 items-center justify-center w-full">
             {aiResponse?.text?.split(" ").map((t, index) => (
               <motion.span
                 className="text-center radial-text text-2xl lg:text-5xl"
@@ -72,8 +74,29 @@ export default function Waiting({ setMode, aiResponse }) {
                 <motion.div className="h-[55px] flex gap-5">
                   {/* voice */}
                   <motion.div className="flex gap-2 flex-1 p-1 buttons">
-                    <motion.div className="p-4 flex items-center justify-center buttons !rounded-[16px]">
-                      <img src={playIcon} />
+                    <motion.div
+                      onClick={() => setPlayingVoice(!playingVoice)}
+                      className="p-4 flex items-center justify-center buttons !rounded-[16px]"
+                    >
+                      {!playingVoice && (
+                        <motion.img
+                          initial={{ scale: 0.9 }}
+                          animate={{ scale: 1 }}
+                          exit={{ rotate: 360 }}
+                          transition={{ ease: "easeOut", duration: 0.2 }}
+                          src={playIcon}
+                        />
+                      )}
+                      {playingVoice && (
+                        <motion.div
+                          initial={{ scale: 0.9 }}
+                          animate={{ scale: 1 }}
+                          exit={{ rotate: 360 }}
+                          transition={{ ease: "easeOut", duration: 0.2 }}
+                        >
+                          <PauseIcon />
+                        </motion.div>
+                      )}
                     </motion.div>
                     <div className="flex h-full flex-col gap-[3px]">
                       {/* lines */}
@@ -114,7 +137,11 @@ export default function Waiting({ setMode, aiResponse }) {
         </div>
       </motion.div>
 
-      <AnswerModal open={showModal} setOpen={setShowModal} />
+      <AnswerModal
+        open={showModal}
+        setOpen={setShowModal}
+        description={description}
+      />
     </>
   );
 }
