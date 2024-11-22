@@ -13,9 +13,9 @@ export default function AllRoutes() {
     return (
       <>
         <Routes>
-          <Route path="/landing" element={<HomePage />} />
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/tech-page" element={<TechPage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/vai" element={<LandingPage />} />
+          <Route path="/tech" element={<TechPage />} />
         </Routes>
 
         <PreLoaderPage />

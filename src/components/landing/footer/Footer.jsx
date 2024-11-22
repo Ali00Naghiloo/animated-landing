@@ -68,7 +68,7 @@ export default function Footer() {
               repeatType: "reverse",
               repeatDelay: 0.8,
             }}
-            className="w-fit rounded-full p-2 py-3 bg-white"
+            className="w-fit rounded-full p-2 py-3 bg-white rotate-180"
           >
             <Up />
           </motion.div>
